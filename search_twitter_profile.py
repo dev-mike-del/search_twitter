@@ -1,16 +1,15 @@
 #!/usr/bin/env python
 
 import json
-import time
 import requests
 
 from twitter_api_verification import auth
 
-def search_twitter_profile(twitter_handle=False):
-	if twitter_handle is not False:
+def search_twitter_profile(screen_name=False):
+	if screen_name is not False:
 		search_url = (
 			'https://api.twitter.com/1.1/users/show.json?screen_name={}'.format(
-				twitter_handle
+				screen_name
 				)
 			)
 
