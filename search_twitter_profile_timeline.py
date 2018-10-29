@@ -16,10 +16,21 @@ def search_twitter_profile_timeline(screen_name=False, number_of_tweets=1):
 
 		results = requests.get(search_twitter_profile_timeline_url, auth=auth).json()
 
-		for result in results:
-			print("{} \n".format(result,))
-			for item in result:
-				print("{}: {} \n".format(item, result[item]))
+		try:
+			if results["errors"]:
+				print('''
+Twitter Handle: {}
+Twitter API Response: {}
+
+***The Twitter API responded with an error for {}.
+***Check the spelling to ensure accuracy.
+***Do not include an "@" at the begining of the Twitter handle
+'''.format(screen_name, results["errors"][0]["message"],screen_name))
+		except:
+			for result in results:
+				print("{} \n".format(result,))
+				for item in result:
+					print("{}: {} \n".format(item, result[item]))
 	else:
 		pass
 
