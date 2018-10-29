@@ -15,8 +15,18 @@ def search_twitter_profile(screen_name=False):
 
 		results = requests.get(search_url, auth=auth).json()
 
-		for result in results:
-			print("{}: {} \n".format(result, results[result]))
+		if results["errors"]:
+			print('''
+Twitter Handle: {}
+Twitter API Response: {}
+
+***The Twitter API responded with an error for {}.
+***Check the spelling to ensure accuracy.
+***Do not include an "@" at the begining of the Twitter handle
+'''.format(screen_name, results["errors"][0]["message"],screen_name))
+		else:
+			for result in results:
+				print("{}: {} \n".format(result, results[result]))
 	else:
 		pass
 
