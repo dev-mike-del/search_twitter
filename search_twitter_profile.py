@@ -15,8 +15,9 @@ def search_twitter_profile(screen_name=False):
 
 		results = requests.get(search_url, auth=auth).json()
 
-		if results["errors"]:
-			print('''
+		try:
+			if results["errors"]:
+				print('''
 Twitter Handle: {}
 Twitter API Response: {}
 
@@ -24,7 +25,8 @@ Twitter API Response: {}
 ***Check the spelling to ensure accuracy.
 ***Do not include an "@" at the begining of the Twitter handle
 '''.format(screen_name, results["errors"][0]["message"],screen_name))
-		else:
+
+		except:
 			for result in results:
 				print("{}: {} \n".format(result, results[result]))
 	else:
