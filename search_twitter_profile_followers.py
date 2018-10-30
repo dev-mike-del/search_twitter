@@ -25,6 +25,7 @@ Twitter API Response: {}
 ***Check the spelling to ensure accuracy.
 ***Do not include an "@" at the begining of the Twitter handle
 '''.format(screen_name, id_results["errors"][0]["message"],screen_name))
+				return id_results
 		except:
 			ids = id_results["ids"]
 			number_of_ids = len(ids)
@@ -42,21 +43,22 @@ Twitter API Response: {}
 				user_lookup_results = requests.get(user_lookup_search_url,auth=auth).json()
 
 				
-				for user in user_lookup_results:
-					print('''
-Twitter Handle: @{}
-Name: {}
-Verified: {}
-Followers: {}
-location: {}
-'''.format(
-			user["screen_name"],
-			user["name"],
-			user["verified"],
-			user["followers_count"],
-			user["location"]
-		)
-)
+# 				for user in user_lookup_results:
+# 					print('''
+# Twitter Handle: @{}
+# Name: {}
+# Verified: {}
+# Followers: {}
+# location: {}
+# '''.format(
+# 			user["screen_name"],
+# 			user["name"],
+# 			user["verified"],
+# 			user["followers_count"],
+# 			user["location"]
+# 		)
+# )
+				return(user_lookup_results)
 
 	else:
 		pass
