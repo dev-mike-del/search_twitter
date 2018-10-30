@@ -25,10 +25,12 @@ Twitter API Response: {}
 ***Check the spelling to ensure accuracy.
 ***Do not include an "@" at the begining of the Twitter handle
 '''.format(screen_name, results["errors"][0]["message"],screen_name))
+			return results
 
 		except:
-			for result in results:
-				print("{}: {} \n".format(result, results[result]))
+			# for result in results:
+			# 	print("{}: {} \n".format(result, results[result]))
+			return results
 	else:
 		pass
 
