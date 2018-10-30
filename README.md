@@ -54,3 +54,9 @@ python *PATH TO SCRIPT*/tests.py
 ## Authors
 
 * **Michael Delgado** - *Initial work* - [dev-mike-del](https://github.com/dev-mike-del)
+
+## License
+
+This project is licensed under the GNU General Public License v3.0 - see the [LICENSE.md](LICENSE.md) file for details
+
+
