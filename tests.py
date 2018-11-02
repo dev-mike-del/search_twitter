@@ -59,7 +59,6 @@ class TestSearchTwitterProfilefollowers(unittest.TestCase):
             )
 
         self.id_results = requests.get(self.id_search_url, auth=auth).json()
-        print(self.id_results)
         try:
             self.ids = self.id_results["ids"]
             self.number_of_ids = len(self.ids)
@@ -88,7 +87,6 @@ class TestSearchTwitterProfilefollowers(unittest.TestCase):
 
     def test_search_twitter_profile_followers_success(self):
         success_results = search_twitter_profile(self.screen_name)
-        print(success_results)
         self.assertTrue(success_results)
 
     # def test_search_twitter_profile_id(self):
