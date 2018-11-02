@@ -36,12 +36,12 @@ Welcome to the Python Twitter Search app created by Michael Delgado!
 				if change_twitter_handle in ("no", "n"):
 					twitter_handle = input("\nEnter a different Twitter handle: ")
 				else:
-					pass
+					print("Twitter handle: {}".format(twitter_handle))
 			else:
 				twitter_handle = input("\nEnter a Twitter handle: ")
 
 			if search == 1:
-				search_twitter_profile(twitter_handle)
+				print(search_twitter_profile(twitter_handle))
 			elif search == 2:
 				search_twitter_profile_followers(twitter_handle)
 			elif search == 3:
