@@ -20,13 +20,12 @@ def search_twitter_profile_followers(screen_name=False):
 				print('''
 Twitter Handle: {}
 Twitter API Response: {}
-
 ***The Twitter API responded with an error for {}.
 ***Check the spelling to ensure accuracy.
 ***Do not include an "@" at the begining of the Twitter handle
 '''.format(screen_name, id_results["errors"][0]["message"],screen_name))
 				return id_results
-		except:
+		except KeyError:
 			ids = id_results["ids"]
 			number_of_ids = len(ids)
 
@@ -66,4 +65,3 @@ Twitter API Response: {}
 
 if __name__ == "__main__":
 	search_twitter_profile_followers("dev_mike_del")
-
