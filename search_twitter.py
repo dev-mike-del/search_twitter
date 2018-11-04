@@ -57,7 +57,41 @@ Welcome to the Python Twitter Search app created by Michael Delgado!
 				print("\n{}\n{} has {} followers\n{}".format(
 					asterisks, twitter_handle, len(result), asterisks))
 			elif search == 3:
-				search_twitter_profile_timeline(twitter_handle)
+				timeline = search_twitter_profile_timeline(twitter_handle)
+
+				for key in timeline:
+					print("{} \n".format(key,))
+					for item in key:
+						print("{}: {} \n".format(item, key[item]))
+				asterisks = "*"
+				print('''
+{}
+Name: {}
+Twitter handle:{}
+Description: {}
+Account created: {}
+URL: {}
+Account ID: {}
+Status count: {}
+Followers: {}
+Following: {}
+Language: {}
+{}
+'''.format(
+	"#"*20,
+	key["user"]["name"],
+	key["user"]["screen_name"],
+	key["user"]["description"],
+	key["user"]["created_at"],
+	key["user"]["entities"]["url"]["urls"][0]["expanded_url"],
+	key["user"]["id_str"],
+	key["user"]["statuses_count"],
+	key["user"]["followers_count"],
+	key["user"]["friends_count"],
+	key["lang"],
+	"#"*20,))
+
+
 			elif search == 4:
 				break
 			elif search not in [1,2,3,4]:

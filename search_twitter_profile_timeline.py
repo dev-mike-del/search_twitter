@@ -21,20 +21,15 @@ def search_twitter_profile_timeline(screen_name=False, number_of_tweets=1):
 				print('''
 Twitter Handle: {}
 Twitter API Response: {}
-
 ***The Twitter API responded with an error for {}.
 ***Check the spelling to ensure accuracy.
 ***Do not include an "@" at the begining of the Twitter handle
 '''.format(screen_name, results["errors"][0]["message"],screen_name))
-		except:
-			for result in results:
-				print("{} \n".format(result,))
-				for item in result:
-					print("{}: {} \n".format(item, result[item]))
+		except TypeError:
+			return results
 	else:
 		pass
 
 
 if __name__ == "__main__":
 	search_twitter_profile_timeline("dev_mike_del")
-
