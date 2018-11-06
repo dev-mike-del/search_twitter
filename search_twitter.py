@@ -2,7 +2,7 @@
 
 import datetime
 
-from search_twitter_profile import search_twitter_profile
+from search_twitter_profile_ui import search_twitter_profile_ui
 from search_twitter_profile_followers import search_twitter_profile_followers
 from search_twitter_profile_timeline import search_twitter_profile_timeline
 
@@ -44,9 +44,7 @@ Welcome to the Python Twitter Search app created by Michael Delgado!
 
 
 			if search == 1:
-				profile = search_twitter_profile(twitter_handle)
-				for item in profile:
-					print("\n{}: {}".format(item,profile[item]))
+				search_twitter_profile_ui(twitter_handle)
 
 			elif search == 2:
 				followers_list = search_twitter_profile_followers(twitter_handle)
