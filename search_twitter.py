@@ -75,13 +75,16 @@ Welcome to the Python Twitter Search app created by Michael Delgado!
 					if follower["verified"] == True:
 						verified_followers.append("{} (@{})".format(follower["name"],follower["screen_name"]))
 
+				print('''
+{} followers.
 
-				print("\n{} has {} followers.\n".format(twitter_handle ,len(followers_list)))
-				# print(follower_dict)
-				print("\n{} has {} verifired followers.".format(twitter_handle ,len(verified_followers)))
-				print("Verified Followers:")
-				for verified_follower in verified_followers:
-					print(verified_follower)
+{} verifired followers
+'''.format(len(followers_list),len(verified_followers)))
+
+				if len(verified_followers) >= 1:
+					print("Verified Followers:")
+					for verified_follower in verified_followers:
+						print(verified_follower)
 
 			elif search == 3:
 				timeline = search_twitter_profile_timeline(twitter_handle)
