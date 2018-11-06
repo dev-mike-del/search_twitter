@@ -28,6 +28,7 @@ Twitter API Response: {}
 		except KeyError:
 			ids = id_results["ids"]
 			number_of_ids = len(ids)
+			user_lookup_results = []
 
 			while number_of_ids >= 1:
 				set_of_ids = ids[:100]
@@ -39,9 +40,9 @@ Twitter API Response: {}
 					)
 				)
 
-				user_lookup_results = requests.get(user_lookup_search_url,auth=auth).json()
+				user_lookup_results += requests.get(user_lookup_search_url,auth=auth).json()
 
-				return(user_lookup_results)
+			return(user_lookup_results)
 
 	else:
 		pass
