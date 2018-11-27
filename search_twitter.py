@@ -29,27 +29,27 @@ Welcome to the Python Twitter Search app created by Michael Delgado!
 
 ''')
 		)
-
-			if twitter_handle != "":
-				change_twitter_handle = input("Use the same Twitter handle: ").lower()
-				if change_twitter_handle in ("no", "n"):
-					twitter_handle = input("\nEnter a different Twitter handle: ")
+			if search != 4:
+				if twitter_handle != "":
+					change_twitter_handle = input("Use the same Twitter handle: ").lower()
+					if change_twitter_handle in ("no", "n"):
+						twitter_handle = input("\nEnter a different Twitter handle: ")
+					else:
+						print("Twitter handle: {}".format(twitter_handle))
 				else:
-					print("Twitter handle: {}".format(twitter_handle))
-			else:
-				twitter_handle = input("\nEnter a Twitter handle: ")
+					twitter_handle = input("\nEnter a Twitter handle: ")
 
 
-			if search == 1:
-				search_twitter_profile_ui(twitter_handle)
-			elif search == 2:
-				search_twitter_profile_followers_ui(twitter_handle)
-			elif search == 3:
-				search_twitter_profile_timeline_ui(twitter_handle)
-			elif search == 4:
-				break
-			elif search not in [1,2,3,4]:
-				print(error_message)
+				if search == 1:
+					search_twitter_profile_ui(twitter_handle)
+				elif search == 2:
+					search_twitter_profile_followers_ui(twitter_handle)
+				elif search == 3:
+					search_twitter_profile_timeline_ui(twitter_handle)
+				elif search == 4:
+					break
+				elif search not in [1,2,3,4]:
+					print(error_message)
 
 		except ValueError:
 			print(error_message)
