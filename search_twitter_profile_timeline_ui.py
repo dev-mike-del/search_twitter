@@ -2,7 +2,7 @@
 from search_twitter_profile_timeline import search_twitter_profile_timeline
 
 def search_twitter_profile_timeline_ui(twitter_handle):
-	search_twitter_profile_timeline(twitter_handle)
+	timeline = search_twitter_profile_timeline(twitter_handle)
 
 	for key in timeline:
 		print("{} \n".format(key,))
